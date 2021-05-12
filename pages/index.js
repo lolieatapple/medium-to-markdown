@@ -20,7 +20,7 @@ export default function Home() {
         <h3>Input URL:</h3>
         <input style={{margin:"20px", width:"80%"}} value={url} onChange={e=>setUrl(e.target.value)}/>
         <button style={{margin:"20px", width:"80px", height:"40px"}} onClick={()=>{
-          axios.get('/api/mediumToMarkdown').then(ret=>{
+          axios.get('/api/mediumToMarkdown?url=' + url).then(ret=>{
             console.log(ret.data);
             setUrl('');
             setResult(ret.data);
